@@ -7,8 +7,9 @@ import com.utab.onlinemarketkotlin.data.repository.ProductRepository
 import com.utab.onlinemarketkotlin.model.Product
 import com.utab.onlinemarketkotlin.utils.networkUtils.Resource
 import kotlinx.coroutines.Dispatchers
+import javax.inject.Inject
 
-class splashVM(private val productRepository: ProductRepository,private val mainRepository: MainRepository) : ViewModel(){
+class SplashVM @Inject constructor(private val productRepository: ProductRepository, private val mainRepository: MainRepository) : ViewModel(){
 
     fun getProducts()= liveData(Dispatchers.IO) {
         emit(Resource.loading(data = null))
@@ -22,4 +23,6 @@ class splashVM(private val productRepository: ProductRepository,private val main
     fun setProduct(list: List<Product>){
         mainRepository.setProducts(list)
     }
+
+    fun getProduct():List<Product> = mainRepository.getProduct()
 }

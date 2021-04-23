@@ -3,8 +3,11 @@ package com.utab.onlinemarketkotlin.retrofit
 import com.utab.onlinemarketkotlin.utils.NetworkUtils
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
+import javax.inject.Inject
+import javax.inject.Singleton
 
-object RetrofitBuilder {
+@Singleton
+class RetrofitBuilder @Inject constructor(){
 
     fun getRetrofit(): Retrofit {
         return Retrofit.Builder().
