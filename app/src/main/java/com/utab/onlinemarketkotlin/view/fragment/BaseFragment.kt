@@ -5,14 +5,10 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import javax.inject.Inject
 
-abstract class BaseFragment : Fragment() {
+ open class BaseFragment : Fragment() {
+    @Inject
+    lateinit var baseVm: BaseVm
 
-    override fun onCreateView(inflater: LayoutInflater,
-                              container: ViewGroup?,
-                              savedInstanceState: Bundle?): View? {
-        return getFragmentView(inflater, container)
-    }
-
-    abstract fun getFragmentView(inflater: LayoutInflater, container: ViewGroup?): View
 }
